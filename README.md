@@ -1,6 +1,6 @@
 # Tech-Challenge
 
-Desafio desenvolvido com Kubernets e Clean-Architecture para a fase02 do curso de Software Architecture da FIAP Pós Tech.
+Desafio desenvolvido com Kubernets e Clean-Architecture para a fase 02 do curso de Software Architecture da FIAP Pós Tech.
 
 ## Versão
 2.2 [Dockerhub](https://hub.docker.com/repository/docker/pedrovcorsino/tech_challenge/tags "Go to Dockerhub")
