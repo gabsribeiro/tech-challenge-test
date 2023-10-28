@@ -1,5 +1,8 @@
 name: "1. [Feature]"
-on: [ push ]
+on:
+  push:
+    branches:
+      - 'feature**'
 jobs:
   build:
     runs-on: ubuntu-latest
