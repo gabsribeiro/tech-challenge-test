@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tech-challenge
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tech-challenge
+  template:
+    metadata:
+      labels:
+        app: tech-challenge
+    spec:
+      containers:
+        - name: tech-challenge-container
+          image: pedrovcorsino/tech_challenge:latest
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_DB
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_PASSWORD
+            - name: POSTGRES_HOST
+              value: db
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tech-challenge-service
+spec:
+  selector:
+    app: tech-challenge
+  ports:
+    - protocol: TCP
+      port: 30001  
+      targetPort: 8080
+  type: LoadBalancer
