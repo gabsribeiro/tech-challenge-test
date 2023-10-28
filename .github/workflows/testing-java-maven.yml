@@ -1,5 +1,5 @@
 name: "1. [Feature]"
-on: [push]
+on: [ push ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,5 +11,5 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-            - name: Build with Maven
-              run: mvn -B package --file pom.xml
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
